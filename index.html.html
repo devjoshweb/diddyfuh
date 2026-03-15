@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SenseiClawd | Your AI Wingman for Business Growth</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #DA7756;
+            --bg: #FDFDFB;
+            --text: #1a1a1a;
+            --white: #ffffff;
+            --border: rgba(26, 26, 26, 0.1);
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar */
+        nav {
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: rgba(253, 253, 251, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.04em;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            color: rgba(26, 26, 26, 0.7);
+        }
+
+        .hero .btn {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 0;
+        }
+
+        section h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 10px 30px rgba(218, 119, 86, 0.05);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: rgba(26, 26, 26, 0.6);
+            font-size: 1.05rem;
+        }
+
+        /* Solution Section */
+        .solution {
+            background-color: #f4f4f2;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            border-top: 5px solid var(--primary);
+        }
+
+        /* Who it is for */
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .who-card {
+            padding: 4rem 3rem;
+            background: var(--white);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .who-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Signup */
+        .signup {
+            background-color: var(--text);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .signup h2 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .signup p {
+            opacity: 0.7;
+            margin-bottom: 3.5rem;
+            font-size: 1.2rem;
+        }
+
+        .signup-form {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        input {
+            flex: 1;
+            padding: 1.1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .signup-form .btn {
+            width: 100%;
+            padding: 1.1rem;
+            font-size: 1.1rem;
+        }
+
+        #success-msg {
+            display: none;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #4ade80;
+            padding: 2rem;
+        }
+
+        #error-msg {
+            display: none;
+            color: #f87171;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 5rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-tagline {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.5;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .problem-grid, .feature-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.1rem; }
+            .who-grid { grid-template-columns: 1fr; }
+            .form-row { flex-direction: column; }
+            section { padding: 5rem 0; }
+            section h2 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <a href="#" class="logo">
+                <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Man Head -->
+                    <circle cx="50" cy="58" r="22" fill="#1a1a1a"/>
+                    <!-- Glasses -->
+                    <rect x="38" y="55" width="8" height="6" rx="2" stroke="white" stroke-width="2"/>
+                    <rect x="54" y="55" width="8" height="6" rx="2" stroke="white" stroke-width="2"/>
+                    <path d="M46 58H54" stroke="white" stroke-width="2"/>
+                    <!-- Suit/Shoulders -->
+                    <path d="M28 85C28 75 38 72 50 72C62 72 72 75 72 85V100H28V85Z" fill="#1a1a1a"/>
+                    <path d="M44 72L50 82L56 72" fill="white"/>
+                    <!-- Claw Mascot -->
+                    <path d="M35 38C35 28 45 22 50 22C55 22 65 28 65 38" stroke="#DA7756" stroke-width="7" stroke-linecap="round"/>
+                    <path d="M32 42L38 35" stroke="#DA7756" stroke-width="5" stroke-linecap="round"/>
+                    <path d="M68 42L62 35" stroke="#DA7756" stroke-width="5" stroke-linecap="round"/>
+                    <circle cx="50" cy="22" r="4" fill="#DA7756"/>
+                </svg>
+                SenseiClawd
+            </a>
+            <a href="#signup" class="btn btn-primary">Join the waitlist</a>
+        </nav>
+    </div>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Your AI Wingman for Business Growth</h1>
+            <p>SenseiClawd helps ambitious business owners and teams set up Claude AI in minutes — and start multiplying revenue from day one.</p>
+            <a href="#signup" class="btn btn-primary">Get Early Access</a>
+        </div>
+    </header>
+
+    <section id="problem">
+        <div class="container">
+            <h2>AI is changing everything. Most businesses are getting left behind.</h2>
+            <div class="problem-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Too complex</h3>
+                    <p>Claude AI is powerful but setup stops most people before they even start. We handle the friction so you don't have to.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <h3>No guidance</h3>
+                    <p>There is no human-friendly onboarding layer for AI tools. You're left guessing. SenseiClawd is your guide.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <h3>Slow adoption</h3>
+                    <p>Enterprises waste weeks trying to train teams on new AI tools. We shrink that learning curve to zero.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2>SenseiClawd is your AI sensei</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="m12 12 4 10 1.7-4.3L22 16Z"/></svg>
+                    </div>
+                    <h3>One-click setup</h3>
+                    <p>Install our browser extension and SenseiClawd walks you through everything step by step. No technical skills required.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/><path d="m9.01 19 1.44-4.32a2 2 0 0 1 3.1 0l1.44 4.32"/></svg>
+                    </div>
+                    <h3>Real-time guidance</h3>
+                    <p>Stuck on an error? SenseiClawd detects it and fixes it before you even notice. It's like having an expert over your shoulder.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Team onboarding</h3>
+                    <p>Rolling out AI to your whole company? We make it fast, simple and trackable. Monitor progress across your entire organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="who">
+        <div class="container">
+            <h2>Built for people who mean business</h2>
+            <div class="who-grid">
+                <div class="who-card">
+                    <h3>The ambitious entrepreneur</h3>
+                    <p>You have heard about Claude AI, you know it can grow your business, you just need someone to set it up and show you how to win.</p>
+                </div>
+                <div class="who-card">
+                    <h3>The enterprise team</h3>
+                    <p>You are onboarding 10, 50, or 500 employees onto AI tools and you need a fast, reliable, scalable way to do it without the headache.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="signup" id="signup">
+        <div class="container">
+            <h2>Be first. Get early access.</h2>
+            <p>Join the SenseiClawd waitlist and get notified the moment we launch. No spam, ever.</p>
+            
+            <form class="signup-form" id="waitlist-form">
+                <div class="form-row">
+                    <input type="text" id="first_name" placeholder="First name" required>
+                    <input type="email" id="email" placeholder="Email address" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Claim my spot</button>
+            </form>
+
+            <div id="success-msg">
+                You are on the list. SenseiClawd will be in touch.
+            </div>
+            <div id="error-msg">
+                Oops! Something went wrong. Please try again later.
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <svg width="32" height="32" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="58" r="22" fill="#1a1a1a"/>
+                    <rect x="38" y="55" width="8" height="6" rx="2" stroke="white" stroke-width="2"/>
+                    <rect x="54" y="55" width="8" height="6" rx="2" stroke="white" stroke-width="2"/>
+                    <path d="M35 38C35 28 45 22 50 22C55 22 65 28 65 38" stroke="#DA7756" stroke-width="7" stroke-linecap="round"/>
+                </svg>
+                <span style="font-weight: 800; font-size: 1.2rem;">SenseiClawd</span>
+            </div>
+            <p class="footer-tagline">The AI wingman for serious business</p>
+            <p class="copyright">© 2025 SenseiClawd. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // --- EMAILJS CONFIGURATION ---
+        // Replace these placeholders with your actual EmailJS credentials
+        const SERVICE_ID = "service_4v9mlc6";
+        const TEMPLATE_ID = "jen8pwh";
+        const PUBLIC_KEY = "sGlp3SYZKXLJn2KkY";
+
+        (function() {
+            emailjs.init(PUBLIC_KEY);
+        })();
+
+        document.getElementById('waitlist-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const form = this;
+            const btn = form.querySelector('button');
+            const successMsg = document.getElementById('success-msg');
+            const errorMsg = document.getElementById('error-msg');
+
+            btn.disabled = true;
+            btn.innerText = "Joining...";
+
+            const templateParams = {
+                from_name: document.getElementById('first_name').value,
+                from_email: document.getElementById('email').value,
+                name: document.getElementById('first_name').value,
+                email: document.getElementById('email').value,
+                message: 'New waitlist signup from ' + document.getElementById('first_name').value
+            };
+
+            emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    form.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    errorMsg.style.display = 'none';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    btn.disabled = false;
+                    btn.innerText = "Claim my spot";
+                    errorMsg.style.display = 'block';
+                });
+        });
+    </script>
+</body>
+</html>
